@@ -1,60 +1,539 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brian Kodibona | Data Science Portfolio</title>
-  <meta name="description" content="Brian Kodibona portfolio: data science, machine learning, analytics, cybersecurity, mathematics, and cloud projects." />
-  <style>
-    :root{
-      --bg:#060812;--bg2:#0a1020;--card:#101827;--card2:#0d1526;--text:#f6f8ff;--muted:#9aa8c7;--line:rgba(255,255,255,.12);
-      --blue:#67e8f9;--violet:#a78bfa;--green:#34d399;--amber:#fbbf24;--pink:#fb7185;--shadow:0 22px 70px rgba(0,0,0,.35)
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.65;overflow-x:hidden}
-    body:before{content:"";position:fixed;inset:-20%;background:radial-gradient(circle at 15% 10%,rgba(103,232,249,.18),transparent 28%),radial-gradient(circle at 80% 0%,rgba(167,139,250,.18),transparent 28%),radial-gradient(circle at 50% 80%,rgba(52,211,153,.08),transparent 30%);pointer-events:none;z-index:-2}
-    body:after{content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none;z-index:-1}
-    a{color:inherit;text-decoration:none}.wrap{width:min(1180px,92%);margin:auto}.nav{position:sticky;top:0;z-index:50;background:rgba(6,8,18,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:-.03em}.brand span{background:linear-gradient(90deg,var(--blue),var(--violet));-webkit-background-clip:text;color:transparent}.links{display:flex;gap:20px;color:var(--muted);font-size:14px}.links a:hover{color:var(--text)}
-    .btn{border:0;cursor:pointer;display:inline-flex;align-items:center;gap:9px;justify-content:center;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--blue),var(--violet));color:#05101c;font-weight:900;box-shadow:0 12px 35px rgba(103,232,249,.18)}.btn.alt{background:rgba(255,255,255,.045);color:var(--text);border:1px solid var(--line);box-shadow:none}.btn:hover{transform:translateY(-1px)}
-    .hero{padding:88px 0 46px}.hero-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:44px;align-items:center}.kicker{display:inline-flex;gap:10px;align-items:center;color:var(--blue);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.18em}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 20px var(--green)}h1{font-size:clamp(44px,7vw,84px);line-height:.96;letter-spacing:-.075em;margin:16px 0 18px}.grad{background:linear-gradient(110deg,var(--blue),var(--violet),var(--amber));-webkit-background-clip:text;color:transparent}.lead{font-size:clamp(17px,2vw,21px);color:var(--muted);max-width:760px}.actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}.metric{padding:16px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.045)}.metric b{display:block;font-size:27px;line-height:1}.metric span{font-size:12px;color:var(--muted)}
-    .portrait{position:relative;padding:14px;border-radius:34px;background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid var(--line);box-shadow:var(--shadow);isolation:isolate}.portrait:before{content:"";position:absolute;inset:-1px;border-radius:34px;background:linear-gradient(135deg,rgba(103,232,249,.35),rgba(167,139,250,.28),transparent);z-index:-1;filter:blur(10px);opacity:.7}.portrait img{width:100%;display:block;border-radius:24px;aspect-ratio:4/5;object-fit:cover;object-position:center top}.floating{position:absolute;right:24px;bottom:24px;left:24px;border:1px solid var(--line);border-radius:22px;background:rgba(6,8,18,.72);backdrop-filter:blur(16px);padding:16px}.floating b{display:block}.floating span{color:var(--muted);font-size:13px}
-    section{padding:58px 0}.head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px}.head h2{font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.055em;margin:0}.head p{color:var(--muted);max-width:600px;margin:0}.grid{display:grid;gap:18px}.two{grid-template-columns:repeat(2,1fr)}.three{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:repeat(4,1fr)}.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));border-radius:28px;padding:24px;box-shadow:0 14px 45px rgba(0,0,0,.16)}.card h3{margin:0 0 9px;font-size:22px;letter-spacing:-.03em}.card p{margin:0;color:var(--muted)}.card:hover{border-color:rgba(103,232,249,.35);transform:translateY(-2px);transition:.25s ease}
-    .pillrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:rgba(103,232,249,.075);color:#dffbff}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.filter{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);color:var(--muted);cursor:pointer}.filter.active,.filter:hover{color:#06101c;background:var(--blue);font-weight:900}.project{position:relative;overflow:hidden}.project:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(103,232,249,.13),transparent 38%);pointer-events:none}.project>*{position:relative}.meta{color:var(--green);font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px}.project ul{margin:15px 0 0;padding-left:19px;color:var(--muted)}.project li{margin:7px 0}.project .links2{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.mini{font-size:13px;padding:9px 12px;border-radius:999px;border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.04)}
-    .timeline{position:relative}.role{padding:0 0 20px 24px;border-left:1px solid var(--line);position:relative}.role:before{content:"";position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--blue)}.role b{display:block}.role small{color:var(--blue);font-weight:800}.role p{margin:6px 0 0;color:var(--muted)}.skill{padding:16px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.04)}.skill b{display:block}.skill span{font-size:13px;color:var(--muted)}
-    .contact{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;border:1px solid var(--line);border-radius:34px;padding:30px;background:linear-gradient(135deg,rgba(103,232,249,.12),rgba(167,139,250,.12));box-shadow:var(--shadow)}.contact h2{margin:0;font-size:36px;letter-spacing:-.05em}.contact p{margin:8px 0 0;color:var(--muted)}footer{padding:34px 0 50px;color:var(--muted);border-top:1px solid var(--line)}.reveal{opacity:0;transform:translateY(18px);transition:.65s ease}.reveal.in{opacity:1;transform:none}
-    @media(max-width:900px){.hero-grid,.two,.three,.four,.contact{grid-template-columns:1fr}.links{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.head{display:block}.portrait{max-width:460px;margin:auto}}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#160908" />
+<title>Brian Kodibona | Data Science Portfolio</title>
+<meta name="description" content="Brian Kodibona portfolio: machine learning engineering, AI systems, cybersecurity, analytics engineering, and applied data infrastructure." />
+<meta property="og:title" content="Brian Kodibona | Data Science Portfolio" />
+<meta property="og:description" content="Machine learning engineering, AI systems, cybersecurity, analytics engineering, and applied data infrastructure." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://briankodibona.github.io/briankodibona-portfolio/assets/profile.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#160908;--bg2:#1e0b0a;--card:#241110;--card2:#1b0d0c;--text:#fff4f1;--muted:#d6a29c;--line:rgba(255,150,140,.16);
+    --red:#e11d38;--redDeep:#9a1220;--amber:#f59e0b;--green:#15803d;--pink:#fb7185;
+    --red-rgb:225,29,56;--amber-rgb:245,158,11;--btn-text:#fff7f5;
+    --shadow:0 22px 70px rgba(0,0,0,.5);
+    --grid:rgba(255,255,255,.035);
+    --blobA:rgba(var(--red-rgb),.24);--blobB:rgba(154,18,32,.26);--blobC:rgba(var(--amber-rgb),.13);
+    --mini-bg:rgba(255,255,255,.045);--card-grad:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.025));--nav-bg:rgba(14,6,6,.72);
+    --floating-bg:rgba(10,5,5,.78);--pill-bg:rgba(var(--red-rgb),.16);--pill-text:#ffd7d2;
+    --cmdk-overlay:rgba(4,2,2,.65)
+  }
+  [data-theme="dark"]{
+    --bg:#060812;--bg2:#0a1020;--card:#101827;--card2:#0d1526;--text:#f6f8ff;--muted:#9aa8c7;--line:rgba(255,255,255,.12);
+    --red:#67e8f9;--redDeep:#a78bfa;--amber:#fbbf24;--green:#34d399;--pink:#fb7185;
+    --red-rgb:103,232,249;--amber-rgb:251,191,36;--btn-text:#05101c;
+    --shadow:0 22px 70px rgba(0,0,0,.35);
+    --grid:rgba(255,255,255,.035);
+    --blobA:rgba(103,232,249,.18);--blobB:rgba(167,139,250,.18);--blobC:rgba(52,211,153,.08);
+    --mini-bg:rgba(255,255,255,.045);--card-grad:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.035));--nav-bg:rgba(6,8,18,.72);
+    --floating-bg:rgba(6,8,18,.78);--pill-bg:rgba(103,232,249,.1);--pill-text:#dffbff;
+    --cmdk-overlay:rgba(4,6,14,.65)
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.65;overflow-x:hidden;transition:background .4s ease,color .4s ease}
+  body:before{content:"";position:fixed;inset:-20%;background:radial-gradient(circle at 15% 10%,var(--blobA),transparent 28%),radial-gradient(circle at 80% 0%,var(--blobB),transparent 28%),radial-gradient(circle at 50% 80%,var(--blobC),transparent 30%);pointer-events:none;z-index:-2;transition:background .4s ease}
+  body:after{content:"";position:fixed;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none;z-index:-1}
+  a{color:inherit;text-decoration:none}.wrap{width:min(1180px,92%);margin:auto}
+  ::selection{background:rgba(var(--red-rgb),.22);color:var(--text)}
+  code,.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+  body.has-cursor,body.has-cursor a,body.has-cursor button,body.has-cursor .filter{cursor:none}
+  #cursorDot{position:fixed;left:0;top:0;width:7px;height:7px;border-radius:50%;background:var(--red);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
+  #cursorRing{position:fixed;left:0;top:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--red);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .25s,height .25s,border-color .25s,background .25s}
+  #cursorRing.big{width:56px;height:56px;background:rgba(var(--red-rgb),.1);border-color:var(--redDeep)}
+  #scrollBar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--red),var(--redDeep),var(--amber));z-index:9995;transition:width .1s linear}
+  #preloader{position:fixed;inset:0;z-index:10000;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+  #preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+  .preloader-inner{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .preloader-name{font-weight:900;letter-spacing:.06em;font-size:14px;color:var(--muted);animation:pulseFade 1.4s ease-in-out infinite}
+  .preloader-bar{width:160px;height:2px;background:rgba(128,64,64,.18);border-radius:2px;overflow:hidden}
+  .preloader-bar span{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--red),var(--amber));animation:loadSweep 1.1s ease-in-out infinite}
+  @keyframes loadSweep{0%{transform:translateX(-120%)}100%{transform:translateX(350%)}}
+  @keyframes pulseFade{0%,100%{opacity:.5}50%{opacity:1}}
+  @keyframes floatSym{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-16px) rotate(var(--r,0deg))}}
+  .nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);transition:background .4s ease}
+  .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+  .brand{font-weight:900;letter-spacing:-.03em;flex:none}.brand span{background:linear-gradient(90deg,var(--red),var(--redDeep));-webkit-background-clip:text;color:transparent}
+  .links{display:flex;gap:15px;color:var(--muted);font-size:13.5px;position:relative}
+  .links a{position:relative;padding:4px 0;transition:color .25s ease;white-space:nowrap}.links a:hover,.links a.active{color:var(--text)}
+  .nav-indicator{position:absolute;bottom:-9px;left:0;width:0;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--red),var(--amber));transition:left .35s cubic-bezier(.16,1,.3,1),width .35s cubic-bezier(.16,1,.3,1)}
+  .nav-actions{display:flex;align-items:center;gap:8px;flex:none}
+  .icon-btn{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--mini-bg);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--text);flex:none}
+  .icon-btn:hover{border-color:rgba(var(--red-rgb),.45)}
+  .btn{border:0;cursor:pointer;display:inline-flex;align-items:center;gap:9px;justify-content:center;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--red),var(--redDeep));color:var(--btn-text);font-weight:900;box-shadow:0 12px 30px rgba(var(--red-rgb),.25);will-change:transform}
+  .btn.alt{background:var(--mini-bg);color:var(--text);border:1px solid var(--line);box-shadow:none}
+  .btn:hover{transform:translateY(-1px)}
+  .hero{position:relative;overflow:hidden;padding:88px 0 46px}
+  .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.18fr .82fr;gap:44px;align-items:center}
+  .kicker{display:inline-flex;gap:10px;align-items:center;color:var(--red);font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.18em}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 20px var(--green)}
+  h1{font-size:clamp(44px,7vw,84px);line-height:.96;letter-spacing:-.075em;margin:16px 0 18px}
+  .grad{background:linear-gradient(110deg,var(--red),var(--redDeep),var(--amber));-webkit-background-clip:text;color:transparent;background-size:200% auto;animation:gradShift 6s ease-in-out infinite}
+  @keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .lead{font-size:clamp(17px,2vw,21px);color:var(--muted);max-width:760px}
+  .actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:28px}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+  .metric{padding:16px;border-radius:22px;border:1px solid var(--line);background:var(--mini-bg)}
+  .metric b{display:block;font-size:27px;line-height:1}.metric span{font-size:12px;color:var(--muted)}
+  .gh-badge{margin-top:14px;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .gh-badge .pulse{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green);animation:pulseFade 1.6s ease-in-out infinite}
+  .portrait{position:relative;padding:14px;border-radius:34px;background:linear-gradient(180deg,rgba(var(--red-rgb),.12),rgba(var(--red-rgb),.03));border:1px solid var(--line);box-shadow:var(--shadow);isolation:isolate}
+  .portrait:before{content:"";position:absolute;inset:-1px;border-radius:34px;background:linear-gradient(135deg,rgba(var(--red-rgb),.35),rgba(var(--amber-rgb),.22),transparent);z-index:-1;filter:blur(10px);opacity:.7}
+  .portrait img{width:100%;display:block;border-radius:24px;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+  .floating{position:absolute;right:24px;bottom:24px;left:24px;border:1px solid var(--line);border-radius:22px;background:var(--floating-bg);backdrop-filter:blur(16px);padding:16px}
+  .floating b{display:block}.floating span{color:var(--muted);font-size:13px}
+  .scroll-cue{position:absolute;left:50%;bottom:10px;transform:translateX(-50%);width:24px;height:38px;border:2px solid var(--line);border-radius:16px;display:flex;justify-content:center;padding-top:6px;z-index:1}
+  .scroll-cue span{width:4px;height:8px;border-radius:2px;background:var(--red);animation:scrollcue 1.6s ease infinite}
+  @keyframes scrollcue{0%{opacity:1;transform:translateY(0)}70%{opacity:0;transform:translateY(14px)}100%{opacity:0}}
+  section{padding:58px 0;position:relative}.head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:24px;position:relative;z-index:1}
+  .head h2{font-size:clamp(30px,4vw,48px);line-height:1;letter-spacing:-.055em;margin:0}.head p{color:var(--muted);max-width:600px;margin:0}
+  .grid{display:grid;gap:18px}.two{grid-template-columns:repeat(2,1fr)}.three{grid-template-columns:repeat(3,1fr)}.four{grid-template-columns:repeat(4,1fr)}
+  .card{border:1px solid var(--line);background:var(--card-grad);border-radius:28px;padding:24px;box-shadow:0 14px 40px rgba(60,10,10,.08);transition:transform .12s ease,border-color .25s ease;position:relative;z-index:1}
+  .card h3{margin:0 0 9px;font-size:22px;letter-spacing:-.03em}.card p{margin:0;color:var(--muted)}
+  .card:hover{border-color:rgba(var(--red-rgb),.35)}
+  .pillrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+  .pill{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:var(--pill-bg);color:var(--pill-text);font-weight:600}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;position:relative;z-index:1}
+  .filter{padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--mini-bg);color:var(--muted);cursor:pointer;transition:.2s ease}
+  .filter.active,.filter:hover{color:var(--btn-text);background:var(--red);font-weight:900;border-color:transparent}
+  .project{position:relative;overflow:hidden;transition:opacity .25s ease,transform .25s ease}
+  .project:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,rgba(var(--red-rgb),.1),transparent 38%);pointer-events:none}
+  .project>*{position:relative}.meta{color:#ff9d95;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px}
+  [data-theme="dark"] .meta{color:#c4b5fd}
+  .project ul{margin:15px 0 0;padding-left:19px;color:var(--muted)}.project li{margin:7px 0}
+  .project .links2{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .mini{font-size:13px;padding:9px 12px;border-radius:999px;border:1px solid var(--line);color:var(--text);background:var(--mini-bg);display:inline-flex;align-items:center;gap:6px}
+  .mini.soon{opacity:.6;cursor:default;pointer-events:none}
+  .mini.soon .soon-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulseFade 1.6s ease-in-out infinite}
+  .timeline{position:relative}.role{padding:0 0 20px 24px;border-left:1px solid var(--line);position:relative;opacity:0;transform:translateX(-14px);transition:opacity .6s cubic-bezier(.16,1,.3,1),transform .6s cubic-bezier(.16,1,.3,1)}
+  .role.in{opacity:1;transform:none}
+  .role:before{content:"";position:absolute;left:-6px;top:4px;width:11px;height:11px;border-radius:50%;background:var(--red);transition:box-shadow .4s ease}
+  .role.in:before{box-shadow:0 0 0 5px rgba(var(--red-rgb),.15)}
+  .role b{display:block}.role small{color:var(--red);font-weight:800}.role p{margin:6px 0 0;color:var(--muted)}
+  .skill{padding:16px;border-radius:20px;border:1px solid var(--line);background:var(--mini-bg);transition:transform .15s ease,border-color .2s ease}
+  .skill:hover{border-color:rgba(var(--red-rgb),.4)}
+  .skill b{display:block}.skill span{font-size:13px;color:var(--muted)}
+  .edu-card{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+  .edu-badge{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,var(--red),var(--amber));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--btn-text);flex:none}
+  .about-card p{color:var(--muted);font-size:16px}
+  .contact{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;border:1px solid var(--line);border-radius:34px;padding:30px;background:linear-gradient(135deg,rgba(var(--red-rgb),.1),rgba(var(--amber-rgb),.08));box-shadow:var(--shadow);position:relative;z-index:1}
+  .contact h2{margin:0;font-size:36px;letter-spacing:-.05em}.contact p{margin:8px 0 0;color:var(--muted)}
+  .copy-email{cursor:pointer;border-bottom:1px dashed var(--muted)}
+  footer{padding:34px 0 50px;color:var(--muted);border-top:1px solid var(--line)}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  #backToTop{background:none;border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 14px;font-size:12px;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+  #backToTop:hover{color:var(--text);border-color:rgba(var(--red-rgb),.4)}
+  #localClock{font-variant-numeric:tabular-nums}
+  .reveal{opacity:0;transform:translateY(18px);transition:.65s cubic-bezier(.16,1,.3,1)}.reveal.in{opacity:1;transform:none}
+  .bg-eq{position:absolute;z-index:0;font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--red);opacity:.06;pointer-events:none;user-select:none;white-space:nowrap;animation:floatSym 9s ease-in-out infinite}
+  [data-theme="dark"] .bg-eq{opacity:.09}
+  #toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--card);border:1px solid var(--line);color:var(--text);padding:12px 18px;border-radius:999px;font-size:13px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.35s cubic-bezier(.16,1,.3,1);z-index:9997}
+  #toast.show{opacity:1;transform:translate(-50%,0)}
+  .cmdk-overlay{position:fixed;inset:0;background:var(--cmdk-overlay);backdrop-filter:blur(6px);z-index:9996;display:flex;align-items:flex-start;justify-content:center;padding-top:14vh;opacity:0;pointer-events:none;transition:.25s ease}
+  .cmdk-overlay.open{opacity:1;pointer-events:auto}
+  .cmdk{width:min(560px,90vw);background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;transform:translateY(-10px) scale(.98);transition:.25s ease}
+  .cmdk-overlay.open .cmdk{transform:translateY(0) scale(1)}
+  .cmdk input{width:100%;box-sizing:border-box;padding:18px 20px;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--text);font-size:16px;outline:none;font-family:inherit}
+  .cmdk-list{max-height:300px;overflow-y:auto;padding:8px}
+  .cmdk-item{padding:11px 14px;border-radius:12px;font-size:14px;color:var(--muted);cursor:pointer}
+  .cmdk-item.active{background:rgba(var(--red-rgb),.12);color:var(--text)}
+  .cmdk-empty{padding:14px;color:var(--muted);font-size:13px;text-align:center}
+  .cmdk-hint{display:flex;gap:14px;padding:10px 16px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}
+  @media(max-width:900px){.hero-grid,.two,.three,.four,.contact{grid-template-columns:1fr}.links{display:none}.metrics{grid-template-columns:repeat(2,1fr)}.head{display:block}.portrait{max-width:460px;margin:auto}.edu-card{grid-template-columns:1fr}.bg-eq{display:none}}
+  @media(max-width:1120px){.links{gap:11px;font-size:12.5px}}
+  @media (prefers-reduced-motion: reduce){.reveal,.role,.bg-eq{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}*{scroll-behavior:auto!important;animation:none!important}}
+  noscript #preloader{display:none}
+</style>
 </head>
 <body>
-  <header class="nav"><div class="wrap nav-inner"><a class="brand" href="#top">Brian <span>Kodibona</span></a><nav class="links"><a href="#work">Work</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav><a class="btn alt" href="#contact">Contact</a></div></header>
+  <noscript><style>#preloader{display:none}</style></noscript>
+  <div id="preloader" aria-hidden="true"><div class="preloader-inner"><span class="preloader-name">BRIAN KODIBONA</span><span class="preloader-bar"><span></span></span></div></div>
+  <div id="cursorDot"></div><div id="cursorRing"></div>
+  <div id="scrollBar"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div class="cmdk-overlay" id="cmdkOverlay">
+    <div class="cmdk">
+      <input id="cmdkInput" placeholder="Type a command… sections, links, theme" autocomplete="off" />
+      <div class="cmdk-list" id="cmdkList"></div>
+      <div class="cmdk-hint"><span>↑↓ navigate</span><span>↵ select</span><span>esc close</span></div>
+    </div>
+  </div>
+
+  <header class="nav"><div class="wrap nav-inner">
+    <a class="brand" href="#top">Brian <span>Kodibona</span></a>
+    <nav class="links" id="navLinks"><a href="#about">About</a><a href="#work">Work</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#contact">Contact</a><span class="nav-indicator" id="navIndicator"></span></nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="cmdkTrigger" aria-label="Open command menu" title="Command menu (Ctrl/Cmd K)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21L16.65 16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle red and blue color theme" title="Toggle color theme (red / blue)">
+        <svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" fill="none"></svg>
+      </button>
+      <a class="btn alt" href="#contact">Contact</a>
+    </div>
+  </div></header>
+
   <main id="top">
-    <section class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="kicker"><span class="dot"></span>Data Science • ML • Mathematics • Cybersecurity</div><h1>Turning complex data into <span class="grad">systems, insight and impact.</span></h1><p class="lead">I am Brian Kodibona, a Mathematics and Computer Science student based in Pretoria. My work sits at the intersection of data science, machine learning, software engineering, cybersecurity, and student technology leadership.</p><div class="actions"><a class="btn" href="#projects">View Projects</a><a class="btn alt" href="https://github.com/briankodibona" target="_blank" rel="noreferrer">GitHub</a><a class="btn alt" href="https://www.linkedin.com/in/brian-kodibona-0ab535176/" target="_blank" rel="noreferrer">LinkedIn</a></div><div class="metrics"><div class="metric"><b>10+</b><span>portfolio case studies</span></div><div class="metric"><b>AI/ML</b><span>core focus</span></div><div class="metric"><b>500+</b><span>connections</span></div><div class="metric"><b>5,000+</b><span>LinkedIn followers</span></div></div></div><div class="portrait reveal"><img src="assets/profile.jpg" alt="Brian Kodibona profile photo"><div class="floating"><b>Data Scientist | Mathematics & Computer Science</b><span>Founder & Chairman of UDS • AWS SBG IT Support</span></div></div></div></section>
+    <section class="hero">
+      <canvas id="fx"></canvas>
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="kicker"><span class="dot"></span>ML Engineering • AI Systems • Cybersecurity • Mathematics</div>
+          <h1>Turning complex data into <span class="grad">systems, insight and impact.</span></h1>
+          <p class="lead">I am Brian Kodibona, a Mathematics and Computer Science enthusiast based in South Africa. My work sits at the intersection of data science, machine learning, software engineering, cybersecurity, and student technology leadership.</p>
+          <div class="actions">
+            <a class="btn magnetic" href="#projects">View Projects</a>
+            <a class="btn alt magnetic" href="https://github.com/briankodibona" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn alt magnetic" href="https://www.linkedin.com/in/brian-kodibona-0ab535176/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <div class="metrics">
+            <div class="metric"><b data-count="11">0</b><span>portfolio case studies</span></div>
+            <div class="metric"><b>AI/ML</b><span>core focus</span></div>
+            <div class="metric"><b data-count="500" data-suffix="+">0</b><span>connections</span></div>
+            <div class="metric"><b data-count="5000" data-suffix="+">0</b><span>LinkedIn followers</span></div>
+          </div>
+          <div class="gh-badge"><span class="pulse"></span><span id="ghStats">Live GitHub activity loading…</span></div>
+        </div>
+        <div class="portrait reveal tilt">
+          <img src="assets/profile.jpg" alt="Brian Kodibona profile photo">
+          <div class="floating"><b>Data Scientist | Mathematics & Computer Science</b><span>Founder & Chairman of UDS • AWS SBG IT Support</span></div>
+        </div>
+      </div>
+      <a href="#work" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </section>
 
-    <section id="work"><div class="wrap head reveal"><h2>Portfolio focus</h2><p>Each project is framed as a professional case study: problem, data, method, result, limitation, and next step.</p></div><div class="wrap grid three"><article class="card reveal"><h3>Business analytics</h3><p>Translating messy data into decisions, dashboards, and concise recommendations.</p></article><article class="card reveal"><h3>Machine learning</h3><p>Building validated models for classification, regression, clustering, and anomaly detection.</p></article><article class="card reveal"><h3>Technical leadership</h3><p>Using community building, tutoring, and cloud support to turn knowledge into practical outcomes.</p></article></div></section>
+    <section id="about">
+      <span class="bg-eq" style="left:4%;top:10px;font-size:150px;--r:-6deg" aria-hidden="true">∑</span>
+      <span class="bg-eq" style="right:2%;bottom:-10px;font-size:110px;--r:8deg;animation-delay:1.5s" aria-hidden="true">f(x)</span>
+      <div class="wrap head reveal"><h2>About</h2><p>What I'm building toward, in more depth.</p></div>
+      <div class="wrap reveal"><div class="card about-card tilt">
+        <p>Computer Science and Mathematics enthusiast with technical interests spanning machine learning engineering, artificial intelligence systems, cybersecurity, analytics engineering, and applied data infrastructure.</p>
+        <p style="margin-top:14px">Focused on building predictive models, intelligent automation systems, scalable analytics pipelines, and offensive security workflows. Strong interest in the intersection of AI, cybersecurity, distributed systems, and intelligent decision architectures.</p>
+        <div class="pillrow">
+          <span class="pill">Machine Learning Engineering</span><span class="pill">Artificial Intelligence Systems</span><span class="pill">Predictive Analytics</span><span class="pill">Natural Language Processing</span><span class="pill">Deep Learning</span><span class="pill">Data Engineering</span><span class="pill">Cybersecurity &amp; Penetration Testing</span><span class="pill">Analytics Infrastructure</span><span class="pill">Intelligent Automation Systems</span>
+        </div>
+      </div></div>
+    </section>
 
-    <section id="projects"><div class="wrap head reveal"><h2>Selected projects</h2><p>Filter by track and open each case study directly from its GitHub repository.</p></div><div class="wrap filters reveal"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="ml">ML</button><button class="filter" data-filter="analytics">Analytics</button><button class="filter" data-filter="nlp">NLP</button><button class="filter" data-filter="security">Security</button><button class="filter" data-filter="math">Math</button></div><div class="wrap grid two" id="projectGrid">
-      <article class="card project reveal" data-cat="analytics ml"><div class="meta">Healthcare analytics</div><h3>Hospital Length of Stay Investment Optimizer</h3><p>Identifies which hospital investments are most likely to reduce average length of stay, then turns the analysis into an executive-ready recommendation.</p><div class="pillrow"><span class="pill">Python</span><span class="pill">Regression</span><span class="pill">EDA</span><span class="pill">Dashboard</span></div><ul><li>Models the relationship between scanner availability and hospital stay duration.</li><li>Ranks investment impact using interpretable regression and visual evidence.</li><li>Includes stakeholder-facing summary, charts, and limitations.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/hospital-length-of-stay-investment-optimizer" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="ml analytics"><div class="meta">Predictive modelling</div><h3>Customer Churn Risk Engine</h3><p>Predicts customers likely to leave and explains the main retention levers for business teams.</p><div class="pillrow"><span class="pill">Scikit-learn</span><span class="pill">Random Forest</span><span class="pill">ROC-AUC</span><span class="pill">Streamlit</span></div><ul><li>Compares baseline and tuned models with recall-focused evaluation.</li><li>Profiles high-risk customer groups for targeted retention.</li><li>Includes a lightweight interactive prediction interface.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/customer-churn-risk-engine" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="ml analytics"><div class="meta">Unsupervised learning</div><h3>Customer Segmentation with PCA and K-Means</h3><p>Uses dimensionality reduction and clustering to discover customer groups without labels.</p><div class="pillrow"><span class="pill">PCA</span><span class="pill">K-Means</span><span class="pill">Silhouette</span><span class="pill">Visualization</span></div><ul><li>Standardizes features and explains variance through principal components.</li><li>Selects clusters using elbow and silhouette analysis.</li><li>Converts clusters into actionable marketing personas.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/customer-segmentation-pca-kmeans" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="nlp ml"><div class="meta">Natural language processing</div><h3>Support Ticket Intelligence Classifier</h3><p>Classifies support messages by urgency and topic to help teams prioritize faster.</p><div class="pillrow"><span class="pill">NLP</span><span class="pill">TF-IDF</span><span class="pill">F1 Score</span><span class="pill">Confusion Matrix</span></div><ul><li>Cleans noisy text and engineers features for classification.</li><li>Evaluates precision, recall, and error patterns.</li><li>Extracts common pain points from support conversations.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/support-ticket-intelligence-classifier" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="security ml"><div class="meta">Fraud and anomaly detection</div><h3>Transaction Fraud Anomaly Detector</h3><p>Flags unusual transaction behavior using unsupervised detection and analyst-friendly risk scoring.</p><div class="pillrow"><span class="pill">Isolation Forest</span><span class="pill">Anomaly Detection</span><span class="pill">Risk Scoring</span><span class="pill">Python</span></div><ul><li>Builds behavioral transaction features from raw records.</li><li>Scores outliers and explains why each case was flagged.</li><li>Designs a review workflow for investigation teams.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/transaction-fraud-anomaly-detector" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="security"><div class="meta">Cybersecurity analytics</div><h3>Web Vulnerability Report Automation</h3><p>Turns web application test findings into a structured penetration testing report with severity, evidence, and remediation.</p><div class="pillrow"><span class="pill">Web Security</span><span class="pill">OWASP</span><span class="pill">Reporting</span><span class="pill">Python</span></div><ul><li>Maps findings to risk levels and remediation categories.</li><li>Generates consistent technical and executive summaries.</li><li>Designed for controlled lab and internship-style engagements.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/web-vulnerability-report-automation" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="math ml"><div class="meta">Mathematical modelling</div><h3>Graph Theory Network Analyzer</h3><p>Applies graph metrics to identify influential nodes, bottlenecks, and communities in a network.</p><div class="pillrow"><span class="pill">Graph Theory</span><span class="pill">NetworkX</span><span class="pill">Centrality</span><span class="pill">Communities</span></div><ul><li>Computes degree, betweenness, closeness, and modularity-based clusters.</li><li>Visualizes network structure for strategic interpretation.</li><li>Connects abstract mathematics to real-world systems.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/graph-theory-network-analyzer" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="math analytics"><div class="meta">Optimization</div><h3>Study Schedule Optimization System</h3><p>Optimizes weekly learning schedules across multiple modules using constraints, priorities, and performance goals.</p><div class="pillrow"><span class="pill">Optimization</span><span class="pill">Python</span><span class="pill">Linear Programming</span><span class="pill">Decision Support</span></div><ul><li>Allocates study blocks based on difficulty, deadlines, and expected return.</li><li>Produces a realistic timetable and adjustment rules.</li><li>Demonstrates mathematical decision-making beyond standard notebooks.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/study-schedule-optimization-system" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="ml"><div class="meta">Computer vision</div><h3>Portfolio Image Quality Classifier</h3><p>Evaluates whether profile and project images are showcase-ready using framing, brightness, and clarity features.</p><div class="pillrow"><span class="pill">OpenCV</span><span class="pill">Image Features</span><span class="pill">Classification</span><span class="pill">Branding</span></div><ul><li>Extracts sharpness, contrast, exposure, and face-area features.</li><li>Compares rule-based checks with a simple classifier.</li><li>Outputs practical recommendations for stronger professional presentation.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/portfolio-image-quality-classifier" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
-      <article class="card project reveal" data-cat="analytics"><div class="meta">Business intelligence</div><h3>Executive KPI Dashboard for Student Tech Communities</h3><p>Tracks membership growth, event attendance, project activity, and engagement for a student technology society.</p><div class="pillrow"><span class="pill">Power BI</span><span class="pill">SQL</span><span class="pill">KPIs</span><span class="pill">Leadership</span></div><ul><li>Defines operational metrics for community health and delivery.</li><li>Builds a dashboard for events, mentorship, and project pipelines.</li><li>Links data storytelling with leadership accountability.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/executive-kpi-dashboard-student-tech-communities" target="_blank" rel="noreferrer">Repository</a><a class="mini" href="#contact">Discuss</a></div></article>
+    <section id="work"><div class="wrap head reveal"><h2>Portfolio focus</h2><p>Each project is framed as a professional case study: problem, data, method, result, limitation, and next step.</p></div><div class="wrap grid three">
+      <article class="card reveal tilt"><h3>Business analytics</h3><p>Translating messy data into decisions, dashboards, and concise recommendations.</p></article>
+      <article class="card reveal tilt"><h3>Machine learning</h3><p>Building validated models for classification, regression, clustering, and anomaly detection.</p></article>
+      <article class="card reveal tilt"><h3>Technical leadership</h3><p>Using community building, tutoring, and cloud support to turn knowledge into practical outcomes.</p></article>
     </div></section>
 
-    <section id="experience"><div class="wrap head reveal"><h2>Experience</h2><p>Current work combines training, tutoring, cybersecurity practice, cloud support, and technology community leadership.</p></div><div class="wrap grid two"><div class="card timeline reveal"><div class="role"><small>Aug 2025 - Present</small><b>Data Science Trainee · ALX South Africa</b><p>Python, SQL, statistics, data analysis, machine learning, and real-world case studies sponsored by Momentum Metropolitan Holdings.</p></div><div class="role"><small>Mar 2026 - Present</small><b>Cybersecurity Intern · MWR CyberSec</b><p>Hands-on web application security, vulnerability discovery, controlled exploitation, and professional security reporting.</p></div><div class="role"><small>Jan 2024 - Present</small><b>Founder & Chairperson · Unisa Developer Society</b><p>Founded and lead a student technology society across AI/ML, data science, cybersecurity, software engineering, DevOps, and mentorship.</p></div></div><div class="card timeline reveal"><div class="role"><small>Aug 2025 - Present</small><b>Computer Science SI Leader · UNISA</b><p>Facilitates COS1511 C++ learning sessions focused on algorithms, control structures, functions, and problem solving.</p></div><div class="role"><small>Oct 2025 - Present</small><b>Co-Founder & IT Support Lead · AWS Cloud Club UNISA</b><p>Supports cloud workshops, AWS labs, technical readiness, troubleshooting, and community onboarding.</p></div><div class="role"><small>Apr 2026 - Present</small><b>Mathematics Tutor · Ember Education</b><p>Tutors Engineering Mathematics and Biomathematics with clear, structured explanations and learner-focused support.</p></div></div></div></section>
+    <section id="projects">
+      <span class="bg-eq" style="right:3%;top:0;font-size:130px;--r:5deg" aria-hidden="true">{ }</span>
+      <div class="wrap head reveal"><h2>Selected projects</h2><p>Filter by track and open each case study directly from its GitHub repository.</p></div><div class="wrap filters reveal"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="ml">ML</button><button class="filter" data-filter="analytics">Analytics</button><button class="filter" data-filter="nlp">NLP</button><button class="filter" data-filter="security">Security</button><button class="filter" data-filter="math">Math</button><button class="filter" data-filter="dev">Software</button></div><div class="wrap grid two" id="projectGrid">
+      <article class="card project reveal tilt" data-cat="analytics ml"><div class="meta">Healthcare analytics</div><h3>Hospital Length of Stay Investment Optimizer</h3><p>Identifies which hospital investments are most likely to reduce average length of stay, then turns the analysis into an executive-ready recommendation.</p><div class="pillrow"><span class="pill">Python</span><span class="pill">Regression</span><span class="pill">EDA</span><span class="pill">Dashboard</span></div><ul><li>Models the relationship between scanner availability and hospital stay duration.</li><li>Ranks investment impact using interpretable regression and visual evidence.</li><li>Includes stakeholder-facing summary, charts, and limitations.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/hospital-length-of-stay-investment-optimizer" target="_blank" rel="noopener noreferrer">View on GitHub →</a><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="ml analytics"><div class="meta">Predictive modelling</div><h3>Customer Churn Risk Engine</h3><p>Predicts customers likely to leave and explains the main retention levers for business teams.</p><div class="pillrow"><span class="pill">Scikit-learn</span><span class="pill">Random Forest</span><span class="pill">ROC-AUC</span><span class="pill">Streamlit</span></div><ul><li>Compares baseline and tuned models with recall-focused evaluation.</li><li>Profiles high-risk customer groups for targeted retention.</li><li>Includes a lightweight interactive prediction interface.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="ml analytics"><div class="meta">Unsupervised learning</div><h3>Customer Segmentation with PCA and K-Means</h3><p>Uses dimensionality reduction and clustering to discover customer groups without labels.</p><div class="pillrow"><span class="pill">PCA</span><span class="pill">K-Means</span><span class="pill">Silhouette</span><span class="pill">Visualization</span></div><ul><li>Standardizes features and explains variance through principal components.</li><li>Selects clusters using elbow and silhouette analysis.</li><li>Converts clusters into actionable marketing personas.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="nlp ml"><div class="meta">Natural language processing</div><h3>Support Ticket Intelligence Classifier</h3><p>Classifies support messages by urgency and topic to help teams prioritize faster.</p><div class="pillrow"><span class="pill">NLP</span><span class="pill">TF-IDF</span><span class="pill">F1 Score</span><span class="pill">Confusion Matrix</span></div><ul><li>Cleans noisy text and engineers features for classification.</li><li>Evaluates precision, recall, and error patterns.</li><li>Extracts common pain points from support conversations.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="security ml"><div class="meta">Fraud and anomaly detection</div><h3>Transaction Fraud Anomaly Detector</h3><p>Flags unusual transaction behavior using unsupervised detection and analyst-friendly risk scoring.</p><div class="pillrow"><span class="pill">Isolation Forest</span><span class="pill">Anomaly Detection</span><span class="pill">Risk Scoring</span><span class="pill">Python</span></div><ul><li>Builds behavioral transaction features from raw records.</li><li>Scores outliers and explains why each case was flagged.</li><li>Designs a review workflow for investigation teams.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="security"><div class="meta">Cybersecurity analytics</div><h3>Web Vulnerability Report Automation</h3><p>Turns web application test findings into a structured penetration testing report with severity, evidence, and remediation.</p><div class="pillrow"><span class="pill">Web Security</span><span class="pill">OWASP</span><span class="pill">Reporting</span><span class="pill">Python</span></div><ul><li>Maps findings to risk levels and remediation categories.</li><li>Generates consistent technical and executive summaries.</li><li>Designed for controlled lab and internship-style engagements.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="math ml"><div class="meta">Mathematical modelling</div><h3>Graph Theory Network Analyzer</h3><p>Applies graph metrics to identify influential nodes, bottlenecks, and communities in a network.</p><div class="pillrow"><span class="pill">Graph Theory</span><span class="pill">NetworkX</span><span class="pill">Centrality</span><span class="pill">Communities</span></div><ul><li>Computes degree, betweenness, closeness, and modularity-based clusters.</li><li>Visualizes network structure for strategic interpretation.</li><li>Connects abstract mathematics to real-world systems.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/graph-theory-network-analyzer" target="_blank" rel="noopener noreferrer">View on GitHub →</a><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="math analytics"><div class="meta">Optimization</div><h3>Study Schedule Optimization System</h3><p>Optimizes weekly learning schedules across multiple modules using constraints, priorities, and performance goals.</p><div class="pillrow"><span class="pill">Optimization</span><span class="pill">Python</span><span class="pill">Linear Programming</span><span class="pill">Decision Support</span></div><ul><li>Allocates study blocks based on difficulty, deadlines, and expected return.</li><li>Produces a realistic timetable and adjustment rules.</li><li>Demonstrates mathematical decision-making beyond standard notebooks.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="ml"><div class="meta">Computer vision</div><h3>Portfolio Image Quality Classifier</h3><p>Evaluates whether profile and project images are showcase-ready using framing, brightness, and clarity features.</p><div class="pillrow"><span class="pill">OpenCV</span><span class="pill">Image Features</span><span class="pill">Classification</span><span class="pill">Branding</span></div><ul><li>Extracts sharpness, contrast, exposure, and face-area features.</li><li>Compares rule-based checks with a simple classifier.</li><li>Outputs practical recommendations for stronger professional presentation.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="analytics"><div class="meta">Business intelligence</div><h3>Executive KPI Dashboard for Student Tech Communities</h3><p>Tracks membership growth, event attendance, project activity, and engagement for a student technology society.</p><div class="pillrow"><span class="pill">Power BI</span><span class="pill">SQL</span><span class="pill">KPIs</span><span class="pill">Leadership</span></div><ul><li>Defines operational metrics for community health and delivery.</li><li>Builds a dashboard for events, mentorship, and project pipelines.</li><li>Links data storytelling with leadership accountability.</li></ul><div class="links2"><span class="mini soon" title="Repository coming soon"><span class="soon-dot"></span>Repository — coming soon</span><a class="mini" href="#contact">Discuss</a></div></article>
+      <article class="card project reveal tilt" data-cat="dev"><div class="meta">Application development</div><h3>Employee Application Dashboard</h3><p>A dashboard-style employee management application with a SQL database layer, provisioned through an included database-creation script.</p><div class="pillrow"><span class="pill">HTML/CSS</span><span class="pill">SQL</span><span class="pill">Application Design</span></div><ul><li>Ships with a dedicated database-creation script to provision the schema before first run.</li><li>Structured into separate app and assets folders for a clean project layout.</li><li>Iteratively developed while working through the application's structure end-to-end.</li></ul><div class="links2"><a class="mini" href="https://github.com/briankodibona/Algorithm.Assault" target="_blank" rel="noopener noreferrer">View on GitHub →</a><a class="mini" href="#contact">Discuss</a></div></article>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:22px;color:var(--muted);font-size:14px">More coursework experiments live on <a href="https://github.com/briankodibona" target="_blank" rel="noopener noreferrer" style="color:var(--red);font-weight:800;border-bottom:1px dashed var(--red)">my GitHub profile →</a></p>
+    </section>
 
-    <section id="skills"><div class="wrap head reveal"><h2>Technical stack</h2><p>Core tools and domains used across the portfolio.</p></div><div class="wrap grid four"><div class="skill reveal"><b>Programming</b><span>Python, Java, C++, C, R, MATLAB</span></div><div class="skill reveal"><b>Data Science</b><span>Pandas, NumPy, Scikit-learn, statistics</span></div><div class="skill reveal"><b>Databases</b><span>SQL, MySQL, SQL Server, data modelling</span></div><div class="skill reveal"><b>Visualization</b><span>Matplotlib, Seaborn, dashboards, storytelling</span></div><div class="skill reveal"><b>ML Methods</b><span>Regression, classification, clustering, PCA</span></div><div class="skill reveal"><b>Cybersecurity</b><span>Pen testing, API security, secure web basics</span></div><div class="skill reveal"><b>Software</b><span>Git, GitHub, REST APIs, Django, Node.js</span></div><div class="skill reveal"><b>Leadership</b><span>Public speaking, tutoring, mentoring, strategy</span></div></div></section>
+    <section id="experience">
+      <span class="bg-eq" style="left:2%;bottom:10px;font-size:120px;--r:-4deg" aria-hidden="true">O(n log n)</span>
+      <div class="wrap head reveal"><h2>Experience</h2><p>Current work combines training, tutoring, cybersecurity practice, cloud support, and technology community leadership.</p></div><div class="wrap grid two">
+      <div class="card timeline reveal">
+        <div class="role"><small>Aug 2025 - Aug 2026</small><b>Data Science Trainee · ALX South Africa</b><p>Completed Python, SQL, statistics, and machine learning training sponsored by Momentum Metropolitan Holdings — built regression, classification, and clustering models plus an end-to-end capstone spanning data engineering, ML, and BI.</p></div>
+        <div class="role"><small>Mar 2026 - Jun 2026</small><b>Cybersecurity Intern · MWR CyberSec</b><p>Hands-on web application security: reconnaissance, vulnerability discovery, and controlled exploitation, capped by a full penetration-testing report from enumeration to remediation.</p></div>
+        <div class="role"><small>Jan 2024 - Present</small><b>Founder & Chairperson · Unisa Developer Society</b><p>Founded and lead a student technology society spanning AI/ML, data science, cybersecurity, software engineering, and DevOps — bootcamps, hackathons, and mentorship for a distance-learning community.</p></div>
+      </div>
+      <div class="card timeline reveal">
+        <div class="role"><small>Aug 2025 - Aug 2026</small><b>Computer Science SI Leader · UNISA</b><p>Facilitated COS1511 C++ sessions on algorithms, control structures, and problem solving; reappointed twice under the Siyaphumelela (Kresge Foundation) student-success initiative.</p></div>
+        <div class="role"><small>Oct 2025 - Present</small><b>Co-Founder & IT Support Lead · AWS Cloud Club UNISA</b><p>Co-founded the club's mission and executive structure; leads technical support, troubleshooting, and AWS lab readiness for workshops and member onboarding.</p></div>
+        <div class="role"><small>Apr 2026 - Present</small><b>Mathematics Tutor · Ember Education</b><p>Tutors Engineering Mathematics, Calculus, and Biomathematics for students across Stellenbosch, UCT, Pretoria, and UNISA.</p></div>
+      </div>
+    </div></section>
 
-    <section id="contact"><div class="wrap contact reveal"><div><h2>Let’s build with data.</h2><p>Email: kodibonabrian@gmail.com<br>LinkedIn: linkedin.com/in/brian-kodibona-0ab535176<br>GitHub: github.com/briankodibona</p></div><div class="actions"><a class="btn" href="mailto:kodibonabrian@gmail.com">Email Brian</a><a class="btn alt" href="https://github.com/briankodibona" target="_blank" rel="noreferrer">GitHub</a><a class="btn alt" href="https://www.linkedin.com/in/brian-kodibona-0ab535176/" target="_blank" rel="noreferrer">LinkedIn</a></div></div></section>
+    <section id="education">
+      <span class="bg-eq" style="right:4%;top:6px;font-size:140px;--r:6deg" aria-hidden="true">λ</span>
+      <div class="wrap head reveal"><h2>Education</h2><p>Formal grounding in mathematics and computer science underpins every project above.</p></div><div class="wrap reveal"><div class="card edu-card tilt">
+      <div class="edu-badge">BSc</div>
+      <div>
+        <b style="font-size:20px;letter-spacing:-.02em">Mathematics and Computer Science</b>
+        <div style="color:var(--red);font-weight:800;margin-top:4px">University of South Africa (UNISA) · 2024 – 2026</div>
+        <p style="color:var(--muted);margin:10px 0 0">Coursework spanning pure and applied mathematics alongside core computer science — from formal logic and real analysis to operating systems and artificial intelligence.</p>
+        <div class="pillrow"><span class="pill">Advanced Programming</span><span class="pill">Data Structures & Algorithms</span><span class="pill">Statistics & Numerical Methods</span><span class="pill">Linear Algebra I-III</span><span class="pill">Calculus I-III</span><span class="pill">Differential Equations</span><span class="pill">Discrete Mathematics</span><span class="pill">Mathematical Modelling</span><span class="pill">Artificial Intelligence</span><span class="pill">Computer Systems</span><span class="pill">Operating Systems & Architecture</span><span class="pill">Theoretical Computer Science I-III</span><span class="pill">Formal Logic</span><span class="pill">Real Analysis</span><span class="pill">Complex Analysis</span></div>
+      </div>
+    </div></div></section>
+
+    <section id="skills">
+      <span class="bg-eq" style="left:3%;bottom:0;font-size:110px;--r:-5deg" aria-hidden="true">01001</span>
+      <div class="wrap head reveal"><h2>Technical stack</h2><p>Core tools and domains used across the portfolio.</p></div><div class="wrap grid four">
+      <div class="skill reveal"><b>Programming</b><span>Python, Java, C++, C, R, MATLAB</span></div>
+      <div class="skill reveal"><b>Data Science</b><span>Pandas, NumPy, Scikit-learn, statistics</span></div>
+      <div class="skill reveal"><b>Databases & BI</b><span>SQL, MySQL, SQL Server, Power BI, Tableau</span></div>
+      <div class="skill reveal"><b>Visualization</b><span>Matplotlib, Seaborn, dashboards, storytelling</span></div>
+      <div class="skill reveal"><b>ML Methods</b><span>Regression, Random Forest, PCA, K-Means, Isolation Forest</span></div>
+      <div class="skill reveal"><b>Cybersecurity</b><span>Penetration testing, OWASP, API security</span></div>
+      <div class="skill reveal"><b>Software & Cloud</b><span>Git, GitHub, REST APIs, Docker, AWS, Databricks</span></div>
+      <div class="skill reveal"><b>Leadership</b><span>Public speaking, tutoring, mentoring, strategy</span></div>
+    </div></section>
+
+    <section id="contact"><div class="wrap contact reveal"><div><h2>Let's build with data.</h2><p>Email: <span class="copy-email" title="Click to copy">kodibonabrian@gmail.com</span><br>LinkedIn: linkedin.com/in/brian-kodibona-0ab535176<br>GitHub: github.com/briankodibona</p></div><div class="actions"><a class="btn magnetic" href="mailto:kodibonabrian@gmail.com">Email Brian</a><a class="btn alt magnetic" href="https://github.com/briankodibona" target="_blank" rel="noopener noreferrer">GitHub</a><a class="btn alt magnetic" href="https://www.linkedin.com/in/brian-kodibona-0ab535176/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></section>
   </main>
-  <footer><div class="wrap">© 2026 Brian Kodibona. Data Science, Machine Learning, Mathematics and Technology Leadership.</div></footer>
-  <script>
-    const reveal=()=>document.querySelectorAll('.reveal').forEach(el=>{if(el.getBoundingClientRect().top<innerHeight-70)el.classList.add('in')}); addEventListener('scroll',reveal); reveal();
-    const buttons=document.querySelectorAll('.filter'); const projects=document.querySelectorAll('.project');
-    buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;projects.forEach(p=>{const show=f==='all'||p.dataset.cat.includes(f);p.style.display=show?'block':'none';});}));
-  </script>
+  <footer><div class="wrap footer-row">
+    <span>© <span id="year">2026</span> Brian Kodibona. Data Science, Machine Learning, Mathematics and Technology Leadership.</span>
+    <span style="display:flex;align-items:center;gap:16px">
+      <span id="localClock" title="Local time in South Africa"></span>
+      <button id="backToTop" aria-label="Back to top">↑ Top</button>
+    </span>
+  </div></footer>
+
+<script>
+(function(){
+  const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FINE = matchMedia('(pointer: fine)').matches;
+
+  function hidePreloader(){
+    const p = document.getElementById('preloader');
+    if(!p || p.dataset.hidden) return;
+    p.dataset.hidden = '1'; p.classList.add('done');
+    setTimeout(()=>p.remove(), 700);
+  }
+  addEventListener('load', ()=>setTimeout(hidePreloader, REDUCE?0:450));
+  setTimeout(hidePreloader, 4000);
+
+  const yearEl = document.getElementById('year'); if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+  addEventListener('scroll', ()=>{
+    const h = document.documentElement;
+    const pct = h.scrollHeight>h.clientHeight ? (h.scrollTop/(h.scrollHeight-h.clientHeight))*100 : 0;
+    const bar = document.getElementById('scrollBar'); if(bar) bar.style.width = pct+'%';
+  }, {passive:true});
+
+  if(FINE && !REDUCE){
+    document.body.classList.add('has-cursor');
+    const dot = document.getElementById('cursorDot'), ring = document.getElementById('cursorRing');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+    addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`; });
+    (function loop(){ rx+=(mx-rx)*.18; ry+=(my-ry)*.18; ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,.card,.filter,.mini,.copy-email').forEach(el=>{
+      el.addEventListener('mouseenter', ()=>ring.classList.add('big'));
+      el.addEventListener('mouseleave', ()=>ring.classList.remove('big'));
+    });
+  } else {
+    const d=document.getElementById('cursorDot'), r=document.getElementById('cursorRing');
+    if(d) d.style.display='none'; if(r) r.style.display='none';
+  }
+
+  if(FINE && !REDUCE){
+    document.querySelectorAll('.magnetic').forEach(el=>{
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        const x = e.clientX-r.left-r.width/2, y = e.clientY-r.top-r.height/2;
+        el.style.transform = `translate(${x*.22}px,${y*.32}px)`;
+      });
+      el.addEventListener('mouseleave', ()=>{ el.style.transform=''; });
+    });
+    document.querySelectorAll('.tilt').forEach(el=>{
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        el.style.transform = `perspective(700px) rotateX(${(py-.5)*-7}deg) rotateY(${(px-.5)*7}deg)`;
+      });
+      el.addEventListener('mouseleave', ()=>{ el.style.transform=''; });
+    });
+  }
+
+  const revealIO = new IntersectionObserver((entries)=>{
+    entries.forEach((en)=>{ if(en.isIntersecting){ en.target.classList.add('in'); revealIO.unobserve(en.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>revealIO.observe(el));
+
+  const roleIO = new IntersectionObserver((entries)=>{
+    entries.forEach((en,i)=>{ if(en.isIntersecting){ setTimeout(()=>en.target.classList.add('in'), (i%3)*90); roleIO.unobserve(en.target); } });
+  }, {threshold:.2});
+  document.querySelectorAll('.role').forEach(el=>roleIO.observe(el));
+
+  function animateCount(el){
+    const target = +el.dataset.count, suffix = el.dataset.suffix||'', dur=1200, start=performance.now();
+    function tick(now){
+      const p = Math.min(1,(now-start)/dur), eased = 1-Math.pow(1-p,3);
+      el.textContent = Math.round(target*eased).toLocaleString()+suffix;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    if(REDUCE){ el.textContent = target.toLocaleString()+suffix; } else { requestAnimationFrame(tick); }
+  }
+  const countIO = new IntersectionObserver(entries=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ animateCount(en.target); countIO.unobserve(en.target);} });
+  },{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>countIO.observe(el));
+
+  const buttons = document.querySelectorAll('.filter'), projects = document.querySelectorAll('.project');
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    const f = btn.dataset.filter;
+    projects.forEach(p=>{
+      const show = f==='all' || p.dataset.cat.includes(f);
+      if(show){ p.style.display='block'; requestAnimationFrame(()=>{ p.style.opacity='1'; p.style.transform='none'; }); }
+      else { p.style.opacity='0'; p.style.transform='scale(.96)'; setTimeout(()=>{ if(p.style.opacity==='0') p.style.display='none'; },250); }
+    });
+  }));
+
+  const navLinks = [...document.querySelectorAll('#navLinks a')];
+  const indicator = document.getElementById('navIndicator');
+  function setActive(id){
+    navLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+id));
+    const active = document.querySelector('#navLinks a.active');
+    if(active && indicator){ indicator.style.width = active.offsetWidth+'px'; indicator.style.left = active.offsetLeft+'px'; }
+  }
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const sectionIO = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting) setActive(en.target.id); });
+  }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+  sections.forEach(s=>sectionIO.observe(s));
+
+  let theme = 'light';
+  const themeIcon = document.getElementById('themeIcon');
+  function paintIcon(){
+    themeIcon.innerHTML = theme==='light'
+      ? '<circle cx="12" cy="12" r="7" fill="#67e8f9"/>'
+      : '<circle cx="12" cy="12" r="7" fill="#e11d38"/>';
+  }
+  function toggleTheme(){
+    theme = theme==='light' ? 'dark' : 'light';
+    if(theme==='dark') document.documentElement.setAttribute('data-theme','dark'); else document.documentElement.removeAttribute('data-theme');
+    paintIcon();
+  }
+  document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+  paintIcon();
+
+  document.querySelectorAll('.copy-email').forEach(el=>{
+    el.addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText('kodibonabrian@gmail.com'); showToast('Email copied to clipboard'); }
+      catch(e){ showToast('Copy failed — email: kodibonabrian@gmail.com'); }
+    });
+  });
+  function showToast(msg){
+    const t = document.getElementById('toast'); if(!t) return;
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(showToast._t); showToast._t = setTimeout(()=>t.classList.remove('show'), 2400);
+  }
+
+  const backBtn = document.getElementById('backToTop');
+  if(backBtn) backBtn.addEventListener('click', ()=>scrollTo({top:0, behavior: REDUCE?'auto':'smooth'}));
+
+  function updateClock(){
+    const el = document.getElementById('localClock'); if(!el) return;
+    try{
+      const fmt = new Intl.DateTimeFormat('en-GB', {timeZone:'Africa/Johannesburg', hour:'2-digit', minute:'2-digit'});
+      el.textContent = fmt.format(new Date())+' SAST';
+    }catch(e){}
+  }
+  updateClock(); setInterval(updateClock, 15000);
+
+  fetch('https://api.github.com/users/briankodibona').then(r=> r.ok ? r.json() : Promise.reject()).then(d=>{
+    const el = document.getElementById('ghStats');
+    if(el) el.textContent = (d.public_repos ?? '—')+' public repos on GitHub';
+  }).catch(()=>{ const badge = document.querySelector('.gh-badge'); if(badge) badge.remove(); });
+
+  const commands = [
+    {label:'Go to Home', action:()=>scrollToId('top')},
+    {label:'Go to About', action:()=>scrollToId('about')},
+    {label:'Go to Projects', action:()=>scrollToId('projects')},
+    {label:'Go to Experience', action:()=>scrollToId('experience')},
+    {label:'Go to Education', action:()=>scrollToId('education')},
+    {label:'Go to Skills', action:()=>scrollToId('skills')},
+    {label:'Go to Contact', action:()=>scrollToId('contact')},
+    {label:'Open GitHub profile', action:()=>window.open('https://github.com/briankodibona','_blank')},
+    {label:'Open LinkedIn profile', action:()=>window.open('https://www.linkedin.com/in/brian-kodibona-0ab535176/','_blank')},
+    {label:'Email Brian', action:()=>{ location.href='mailto:kodibonabrian@gmail.com'; closeCmdk(); }},
+    {label:'Toggle red / blue theme', action:()=>{ toggleTheme(); closeCmdk(); }},
+  ];
+  let cmdActive=0, cmdFiltered=commands;
+  const cmdOverlay = document.getElementById('cmdkOverlay'), cmdInput = document.getElementById('cmdkInput'), cmdList = document.getElementById('cmdkList');
+  function renderCmdk(){
+    cmdList.innerHTML = cmdFiltered.length ? cmdFiltered.map((c,i)=>`<div class="cmdk-item ${i===cmdActive?'active':''}" data-i="${i}">${c.label}</div>`).join('') : '<div class="cmdk-empty">No matches</div>';
+  }
+  function openCmdk(){
+    cmdOverlay.classList.add('open'); cmdInput.value=''; cmdFiltered=commands; cmdActive=0; renderCmdk();
+    setTimeout(()=>cmdInput.focus(), 50);
+  }
+  function closeCmdk(){ cmdOverlay.classList.remove('open'); }
+  function scrollToId(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior: REDUCE?'auto':'smooth'}); closeCmdk(); }
+  document.getElementById('cmdkTrigger').addEventListener('click', openCmdk);
+  addEventListener('keydown', e=>{
+    if((e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){ e.preventDefault(); cmdOverlay.classList.contains('open') ? closeCmdk() : openCmdk(); }
+    else if(e.key==='Escape'){ closeCmdk(); }
+  });
+  cmdOverlay.addEventListener('click', e=>{ if(e.target===cmdOverlay) closeCmdk(); });
+  cmdInput.addEventListener('input', e=>{
+    const q = e.target.value.toLowerCase();
+    cmdFiltered = commands.filter(c=>c.label.toLowerCase().includes(q));
+    cmdActive=0; renderCmdk();
+  });
+  cmdInput.addEventListener('keydown', e=>{
+    if(e.key==='ArrowDown'){ e.preventDefault(); cmdActive=Math.min(cmdActive+1,cmdFiltered.length-1); renderCmdk(); }
+    else if(e.key==='ArrowUp'){ e.preventDefault(); cmdActive=Math.max(cmdActive-1,0); renderCmdk(); }
+    else if(e.key==='Enter'){ e.preventDefault(); if(cmdFiltered[cmdActive]) cmdFiltered[cmdActive].action(); }
+  });
+  cmdList.addEventListener('click', e=>{
+    const item = e.target.closest('.cmdk-item'); if(!item) return;
+    const i = +item.dataset.i; if(cmdFiltered[i]) cmdFiltered[i].action();
+  });
+
+  (function(){
+    const canvas = document.getElementById('fx');
+    if(!canvas || !canvas.parentElement) return;
+    const ctx = canvas.getContext('2d');
+    const SYMBOLS = ['∑','∫','π','√','∞','Δ','θ','λ','μ','σ','∂','∇','≠','±','∈','∀','∃','≈','÷','Σ'];
+    let w,h,particles=[], mouse={x:-9999,y:-9999};
+    function resize(){ const r = canvas.parentElement.getBoundingClientRect(); w=canvas.width=r.width; h=canvas.height=r.height; }
+    function init(){
+      resize();
+      const count = REDUCE ? 0 : Math.max(16, Math.min(46, Math.floor(w/32)));
+      particles = Array.from({length:count}, ()=>({
+        x:Math.random()*w, y:Math.random()*h, vx:(Math.random()-.5)*.22, vy:(Math.random()-.5)*.22,
+        s: SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)], size: Math.random()*10+12
+      }));
+    }
+    canvas.parentElement.addEventListener('mousemove', e=>{ const r=canvas.getBoundingClientRect(); mouse.x=e.clientX-r.left; mouse.y=e.clientY-r.top; });
+    canvas.parentElement.addEventListener('mouseleave', ()=>{ mouse.x=-9999; mouse.y=-9999; });
+    const isDark = ()=>document.documentElement.getAttribute('data-theme')==='dark';
+    function step(){
+      requestAnimationFrame(step);
+      if(document.hidden || REDUCE) return;
+      ctx.clearRect(0,0,w,h);
+      const dot = isDark() ? 'rgba(103,232,249,.55)' : 'rgba(255,150,140,.55)';
+      const line = isDark() ? 'rgba(167,139,250,ALPHA)' : 'rgba(var(--amber-rgb),ALPHA)';
+      particles.forEach(p=>{
+        p.x+=p.vx; p.y+=p.vy;
+        const dx=p.x-mouse.x, dy=p.y-mouse.y, dist=Math.hypot(dx,dy);
+        if(dist<90 && dist>0){ p.x += dx/dist*.4; p.y += dy/dist*.4; }
+        if(p.x<-20) p.x=w+20; if(p.x>w+20) p.x=-20;
+        if(p.y<-20) p.y=h+20; if(p.y>h+20) p.y=-20;
+        ctx.font = p.size+'px "JetBrains Mono", monospace';
+        ctx.fillStyle = dot;
+        ctx.fillText(p.s, p.x, p.y);
+      });
+      for(let i=0;i<particles.length;i++){
+        for(let j=i+1;j<particles.length;j++){
+          const a=particles[i], b=particles[j], d=Math.hypot(a.x-b.x,a.y-b.y);
+          if(d<115){ ctx.strokeStyle=line.replace('ALPHA', ((1-d/115)*.3).toFixed(3)); ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+        }
+      }
+    }
+    addEventListener('resize', resize);
+    init(); requestAnimationFrame(step);
+  })();
+})();
+</script>
 </body>
 </html>
+
